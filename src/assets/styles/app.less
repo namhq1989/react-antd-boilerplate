@@ -1,0 +1,349 @@
+@import "./fonts.less";
+@import "./variables.less";
+@import "./mixin.less";
+
+* {
+	min-height: 0;
+	min-width: 0;
+	&:focus {
+    box-shadow: none !important;
+  }
+  font-family: iCielPanton-Regular;
+}
+
+html, :global(#root) {
+  height: 100%;
+  // font-family: iCielPanton-Regular;
+  // font-size: 62.5%;
+}
+
+body {
+  // font-family: iCielPanton-Regular;
+  color: @text-color;
+}
+
+/*
+ ***** OVERRIDE ANT DESIGN *****
+*/
+
+.ant-menu-dark, .ant-layout-sider {
+  background-color: @sidebar-background-color !important;
+}
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub {
+  background-color: #333 !important;
+  box-shadow: none !important;
+}
+
+.ant-calendar {
+  border: 1px solid #d9d9d9 !important;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+.ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+  top: 43% !important;
+  right: 7px !important;
+  opacity: 1 !important;
+}
+
+.ant-input {
+  font-family: iCielPanton-Regular !important;
+}
+
+/*
+ ***** END OVERRIDE ANT DESIGN *****
+*/
+
+/*
+ ***** PAGE MAIN COMPONENTS *****
+*/
+
+p {
+  margin-bottom: 0;
+}
+
+button {
+  text-transform: uppercase;
+}
+
+.container {
+  padding: 16px 0px;
+  font-size: 16px;
+  @media screen and (max-width: @break-small) {
+    padding: 16px 0px;
+  }
+}
+
+.background {
+  &-white {
+    background: @white;
+    .padding-16;
+  }
+  &-revenue {
+    background: #87D068;
+  }
+  &-coin {
+    background: #E4C600;
+  }
+  &-transaction {
+    background: #F60;
+  }
+}
+
+.padding {
+  &-left-8 {
+    padding-left: 8px;
+  }
+  &-right-8 {
+    padding-right: 8px;
+  }
+  &-left-right-8 {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  @media screen and (max-width: @break-small) {
+    padding: 0;
+  }
+}
+
+.margin {
+  &-bottom-8 {
+    margin-bottom: 8px;
+  }
+  &-top-8 {
+    margin-top: 8px;
+  }
+}
+
+.page-content {
+  // background: @white;
+  padding: 0 24px;
+}
+
+.section-title {
+  margin-top: 20px;
+  padding: 8px 0;
+  h4 {
+    font-family: iCielPanton_SemiBold;
+    font-size: @size-13;
+    text-transform: uppercase;
+    max-width: 500px;
+    display: inline-block;
+  }
+  .title-sub-href {
+    text-transform: lowercase;
+    margin-left: 5px;
+  }
+}
+
+.section-filter {
+  // float: right;
+  width: 100%;
+  // margin-right: 16px;
+}
+
+.rc-component {
+  padding: 0 8px;
+}
+
+.icon {
+  &-revenue-table {
+    height: 15px;
+    width: 15px;
+    margin-top: 1px;
+    margin-right: 5px;
+    float: left;
+  }
+  &-coin-table {
+    height: 15px;
+    width: 15px;
+    margin-top: 1px;
+    margin-right: 5px;
+    float: left;
+  }
+  &-bill-table {
+    height: 15px;
+    width: 15px;
+    margin-top: 1px;
+    margin-right: 5px;
+    float: left;
+  }
+  &-checkin-table {
+    height: 17px;
+    width: 17px;
+    margin-top: 2px;
+    margin-right: 8px;
+    float: left;
+  }
+}
+
+.app-table {
+  thead {
+    th {
+      background: @white;
+      text-transform: uppercase;
+      font-size: @size-13;
+      color: @text-color;
+      @media screen and (max-width: @break-small) {
+        font-size: @size-12;
+      }
+    }
+    tr {
+      span {
+        font-family: iCielPanton_SemiBold;
+      }
+    }
+  }
+  tbody {
+    td {
+      // font-family: iCielPanton_SemiBold;
+      font-size: @size-13;
+      color: @text-color;
+      @media screen and (max-width: @break-small) {
+        font-size: @size-12;
+      }
+    }
+  }
+  .registered-user {
+    font-family: iCielPanton-RegularItalic;
+    text-decoration: underline;
+    cursor: pointer;
+    color: @app-color;
+  }
+
+  &-large {
+    thead {
+      th {
+        font-size: @size-14;
+        @media screen and (max-width: @break-small) {
+          font-size: @size-13;
+        }
+      }
+    }
+    tbody {
+      td {
+        font-size: @size-14;
+        @media screen and (max-width: @break-small) {
+          font-size: @size-13;
+        }
+      }
+    }
+  }
+}
+
+.btn {
+  &-excel {
+    background: #28a745;
+    color: white;
+    border-color: #28a745;
+    text-transform: uppercase;
+    &:hover {
+      background: #28a745;
+      border-color: #28a745;
+      color: white;
+    }
+  }
+}
+
+/*
+ ***** END PAGE MAIN COMPONENTS *****
+*/
+
+/*
+ ***** UTILITIES *****
+*/
+
+// Hidden
+.hidden {
+  display: none !important;
+}
+
+.hidden-break-small {
+  @media screen and (max-width: @break-small) {
+    display: none !important;
+  }
+}
+
+.center-block {
+  display: block;
+  margin: 0px auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.color {
+  &-app {
+    color: @app-color;
+  }
+  &-used {
+    color: #108ee9;
+  }
+  &-not-used-yet {
+    color: grey;
+  }
+  &-revenue {
+    color: #87D068;
+  }
+  &-coin {
+    color: #E4C600;
+  }
+  &-transaction {
+    color: #F60;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text {
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.rating {
+  &-5 {
+    background: #4080FF;
+  }
+  &-4 {
+    background: #4080FF;
+  }
+  &-3 {
+    background: #F8BC56;
+  }
+  &-2 {
+    background: #CB3349;
+  }
+  &-1 {
+    background: #CB3349;
+  }
+}
+
+/*
+ ***** END UTILITIES *****
+*/
