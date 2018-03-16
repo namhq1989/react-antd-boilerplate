@@ -4,9 +4,11 @@
     "start": "PORT=4301 roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
+    "precommit-msg": "echo 'Pre-commit checks ...' && exit 0",
     "precommit": "npm run lint"
   },
   "pre-commit": [
+    "precommit-msg",
     "precommit"
   ],
   "engines": {
