@@ -4,7 +4,7 @@ import { Redirect } from 'dva/router'
 
 function ErrorView() {
   return (
-    <Redirect to="/dashboard" />
+    <Redirect to="/" />
   )
 }
 

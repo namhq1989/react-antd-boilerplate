@@ -4,11 +4,13 @@ import { Switch, Route, Redirect, routerRedux } from 'dva/router'
 import dynamic from 'dva/dynamic'
 import viVn from 'antd/lib/locale-provider/vi_VN'
 import { LocaleProvider } from 'antd'
+import { AppConst, RoleConst } from './configs'
 
 // Load views
 import { LayoutView } from './screens/layout'
 import { LoginView, LoginModel } from './screens/login'
-import { DashboardView, DashboardModel } from './screens/dashboard'
+import { MerchantView, MerchantModel } from './screens/merchant'
+import { AnalyticView, AnalyticModel } from './screens/analytic'
 import { ProfileView, ProfileModel } from './screens/profile'
 
 const { ConnectedRouter } = routerRedux
@@ -25,21 +27,27 @@ function Routers({ history, app }) {
     models: () => [LoginModel],
     component: () => LoginView
   }, {
-    path: '/dashboard',
-    models: () => [DashboardModel],
-    component: () => DashboardView
+    path: '/merchant',
+    models: () => [MerchantModel],
+    component: () => MerchantView
+  }, {
+    path: '/analytic',
+    models: () => [AnalyticModel],
+    component: () => AnalyticView
   }, {
     path: '/profile',
     models: () => [ProfileModel],
     component: () => ProfileView
   }]
 
+  const role = localStorage.getItem(AppConst.localStorage.roleKey) || 'admin'
+
   return (
     <LocaleProvider locale={viVn}>
       <ConnectedRouter history={history}>
         <LayoutView>
           <Switch>
-            <Route exact path="/" render={() => (<Redirect to="/dashboard" />)} />
+            <Route exact path="/" render={() => (<Redirect to={`/${RoleConst[role].pages[0]}`} />)} />
             {
               routes.map(({ path, ...dynamics }) => (
                 <Route

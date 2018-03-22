@@ -10,7 +10,7 @@ import { LayoutModel } from './screens/layout'
 const app = dva({
   history: createHistory(),
   ...createLoading({
-    effects: true,
+    effects: true
   }),
   onError(error) {
     console.log('APP ERROR', error.message)

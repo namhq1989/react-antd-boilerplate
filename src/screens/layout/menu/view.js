@@ -2,22 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
-import { MenuConst } from '../../../configs'
+import { MenuConst, AppConst, RoleConst } from '../../../configs'
 import './style.less'
 
 const MenuItem = Menu.Item
 const { SubMenu } = Menu
 
-const DASHBOARD_KEY = 'dashboard'
-
 class MenuView extends React.Component {
   render() {
     const { mode, location } = this.props
-    let pathname = location ? location.pathname.substring(1) : DASHBOARD_KEY
-    if (!pathname) {
-      pathname = DASHBOARD_KEY
-    }
+    const role = localStorage.getItem(AppConst.localStorage.roleKey) || 'admin'
+    const MAIN_KEY = RoleConst[role].pages[0]
+    const PAGES = RoleConst[role].pages
 
+    let pathname = location ? location.pathname.substring(1) : MAIN_KEY
+    if (!pathname) {
+      pathname = MAIN_KEY
+    }
     const menu = MenuConst.slice(0)
 
     return (
@@ -25,6 +26,9 @@ class MenuView extends React.Component {
         {
           menu.map((item) => {
             if (!item.children || !item.children.length) {
+              if (!PAGES.includes(item.id)) {
+                return null
+              }
               return (
                 <MenuItem key={item.id} className={`parent-menu-item ${item.isBorderTopItem ? 'app-menu-divider' : ''}`}>
                   <Link to={`/${item.id}`}>

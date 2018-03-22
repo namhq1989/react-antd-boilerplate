@@ -85,8 +85,32 @@ function processOptions(options) {
  * @param  {object} [options] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
-export const request = (url, options = {}) => {
+export const call = (url, options = {}) => {
   url = AppConst.endpoint + url
+  if (!options.method) {
+    options.method = ApiConst.methods.get
+  }
+  options = processOptions(options)
+  if (options.query) {
+    url += `?${options.query}`
+  }
+
+  return fetch(url, options)
+    .then(checkStatus)
+    .then(parseJSON)
+    .then(data => ({ data }))
+    .catch(err => ({ err }))
+}
+
+/**
+ * Requests to old server, which using for app now
+ *
+ * @param  {string} url       The URL we want to request
+ * @param  {object} [options] The options we want to pass to "fetch"
+ * @return {object}           An object containing either "data" or "err"
+ */
+export const callOldServer = (url, options = {}) => {
+  url = AppConst.oldEndpoint + url
   if (!options.method) {
     options.method = ApiConst.methods.get
   }

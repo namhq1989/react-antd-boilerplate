@@ -1,19 +1,18 @@
 @import "./fonts.less";
 @import "./variables.less";
 @import "./mixin.less";
-
 * {
-	min-height: 0;
-	min-width: 0;
-	&:focus {
+  min-height: 0;
+  min-width: 0;
+  &:focus {
     box-shadow: none !important;
   }
   font-family: iCielPanton-Regular;
 }
 
-html, :global(#root) {
-  height: 100%;
-  // font-family: iCielPanton-Regular;
+html,
+:global(#root) {
+  height: 100%; // font-family: iCielPanton-Regular;
   // font-size: 62.5%;
 }
 
@@ -26,8 +25,9 @@ body {
  ***** OVERRIDE ANT DESIGN *****
 */
 
-.ant-menu-dark, .ant-layout-sider {
-  background-color: @sidebar-background-color !important;
+.ant-menu-dark,
+.ant-layout-sider {
+  background-color: @sidebar-background-color  !important;
 }
 
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
@@ -40,7 +40,7 @@ body {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2) !important;
 }
 
-.ant-menu-submenu-vertical > .ant-menu-submenu-title .ant-menu-submenu-arrow {
+.ant-menu-submenu-vertical>.ant-menu-submenu-title .ant-menu-submenu-arrow {
   top: 43% !important;
   right: 7px !important;
   opacity: 1 !important;
@@ -57,6 +57,11 @@ body {
 /*
  ***** PAGE MAIN COMPONENTS *****
 */
+
+a {
+  text-decoration: underline;
+  color: #001529;
+}
 
 p {
   margin-bottom: 0;
@@ -101,7 +106,6 @@ button {
     padding-left: 8px;
     padding-right: 8px;
   }
-
   @media screen and (max-width: @break-small) {
     padding: 0;
   }
@@ -139,12 +143,27 @@ button {
 
 .section-filter {
   // float: right;
-  width: 100%;
-  // margin-right: 16px;
+  width: 100%; // margin-right: 16px;
 }
 
 .rc-component {
-  padding: 0 8px;
+  margin-bottom: 20px;
+  padding-right: 16px;
+  @media screen and (max-width: @break-small) {
+    padding-right: 0;
+  }
+  .section-title {
+    padding: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    h4 {
+      font-family: iCielPanton_SemiBold;
+      font-size: @size-11;
+      text-transform: uppercase;
+      max-width: 500px;
+      display: inline-block;
+    }
+  }
 }
 
 .icon {
@@ -211,7 +230,6 @@ button {
     cursor: pointer;
     color: @app-color;
   }
-
   &-large {
     thead {
       th {
@@ -228,6 +246,22 @@ button {
           font-size: @size-13;
         }
       }
+    }
+  }
+}
+
+.app-table-small {
+  tbody {
+    td {
+      padding: 4px 16px !important;
+    }
+    .ant-tag {
+      padding: 0 5px;
+      line-height: 18px;
+      height: 21px;
+      margin-right: 4px !important;
+      margin-bottom: 4px !important;
+      font-size: @size-11;
     }
   }
 }

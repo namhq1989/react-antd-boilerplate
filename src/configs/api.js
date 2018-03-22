@@ -1,8 +1,8 @@
 const METHODS = {
-  get: 'get',
-  post: 'post',
-  put: 'put',
-  delete: 'delete',
+  get: 'GET',
+  post: 'POST',
+  put: 'PUT',
+  delete: 'DELETE',
   patch: 'PATCH'
 }
 
@@ -14,8 +14,20 @@ export default {
         url: '/login',
         method: METHODS.post
       }
+    },
+    getUserInfo: () => {
+      return {
+        url: '/users/me',
+        method: METHODS.get
+      }
     }
   },
-  dashboard: {},
-  profile: {}
+  merchant: {
+    all: () => {
+      return {
+        url: '/merchants',
+        method: METHODS.get
+      }
+    }
+  }
 }

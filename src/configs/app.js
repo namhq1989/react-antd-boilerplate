@@ -1,9 +1,13 @@
-const LocalStoragePrefix = (process.env.NODE_ENV === 'production') ? 'app-' : 'app-dev-'
+const LocalStoragePrefix = (process.env.NODE_ENV === 'production') ? 'crm-' : 'crm-dev-'
 
 export default {
   name: 'React - Antd - Boilerplate',
 
-  endpoint: '...',
+  endpoint: 'http://127.0.0.1:5020',
+  // endpoint: 'https://api.zody.vn',
+
+  oldEndpoint: 'http://127.0.0.1:5005',
+  // oldEndpoint: 'https://api.zody.vn',
 
   // Screen size
   screens: {
@@ -19,7 +23,8 @@ export default {
 
   // Local storage
   localStorage: {
-    authKey: `${LocalStoragePrefix}token`
+    authKey: `${LocalStoragePrefix}token`,
+    roleKey: `${LocalStoragePrefix}role`
   },
 
   // Notification level

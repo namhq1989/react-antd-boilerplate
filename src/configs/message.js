@@ -1,13 +1,12 @@
 export default {
-  ServerError: 'Error from server, please try again!',
-  NoPermission: 'You have no permission to do this action!',
+  ServerError: 'Đã xảy ra lỗi, vui lòng thử lại!',
+  NoPermission: 'Bạn không có quyền thực hiện hành động này!',
 
   // Auth
   Login: {
-    RequireEmailAndPassword: 'Please fill all fields in form',
-    EmailIsNotValid: 'Email is invalid',
-    PasswordLengthLeastCharacters: 'Password must at least 6 characters',
-    Successfully: 'Login successfully'
+    RequireEmailAndPassword: 'Vui lòng điền đầy đủ thông tin đăng nhập',
+    EmailIsNotValid: 'Email không hợp lệ',
+    PasswordLengthLeastCharacters: 'Mật khẩu phải có ít nhất 6 ký tự'
   },
 
   // Common

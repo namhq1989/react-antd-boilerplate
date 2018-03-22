@@ -2,11 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'dva/router'
 import { connect } from 'dva'
+import { TransitionGroup } from 'react-transition-group'
 import { Layout } from 'antd'
 import styles from './style.less'
 
 import { SidebarView } from './sidebar'
 import { HeaderView } from './header'
+import { TransitionView } from './transition'
 
 class LayoutView extends React.Component {
   constructor(props) {
@@ -14,6 +16,12 @@ class LayoutView extends React.Component {
 
     this.state = {
       sidebarCollapsed: false
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.app.locationPathname !== nextProps.app.locationPathname) {
+      console.log('change page')
     }
   }
 
@@ -34,6 +42,7 @@ class LayoutView extends React.Component {
 
   render() {
     const { children, location, app } = this.props
+
     return (
       <Layout className={styles.appLayout}>
         {
@@ -56,7 +65,11 @@ class LayoutView extends React.Component {
             : null
           }
           <Layout>
-            {children}
+            <TransitionGroup>
+              <TransitionView key={location.key}>
+                <div>{children}</div>
+              </TransitionView>
+            </TransitionGroup>
           </Layout>
         </Layout>
       </Layout>

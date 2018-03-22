@@ -56,7 +56,7 @@ class ProfileMenuView extends React.Component {
         <Menu.Item key="logout" className="profile-menu-item">
           <div>
             <Icon type="logout" />
-            <span>Đăng xuất</span>
+            <span>Logout</span>
           </div>
         </Menu.Item>
       </Menu>
